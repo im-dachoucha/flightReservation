@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="flightReservation:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>flightReservation</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="flightReservation-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="flightReservation:war exploded" />
+    </root>
+  </artifact>
+</component>
