@@ -1,14 +1,12 @@
 package Models;
 
-import java.util.List;
-
-public class Client {
+public class Ticket {
 
     private final long id;
     private String fullName;
-    private String phone;
     private String email;
-    private List<Ticket> tickets;
+    private String passport;
+    private final Flight flight;
 
     public long getId() {
         return id;
@@ -22,14 +20,6 @@ public class Client {
         this.fullName = fullName;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -38,18 +28,23 @@ public class Client {
         this.email = email;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
+    public String getPassport() {
+        return passport;
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+    public void setPassport(String passport) {
+        this.passport = passport;
     }
 
-    public Client(long id, String fullName, String phone, String email) {
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public Ticket(long id, String fullName, String email, String passport, Flight flight) {
         this.id = id;
         this.fullName = fullName;
-        this.phone = phone;
         this.email = email;
+        this.passport = passport;
+        this.flight = flight;
     }
 }
