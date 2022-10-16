@@ -1,7 +1,9 @@
 package com.example.flightreservation;
 
 import java.io.*;
+import java.sql.Connection;
 
+import Connection.ConnectionFactory;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -14,6 +16,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Connection connection= ConnectionFactory.getConnection();
         response.setContentType("text/html");
 
         // Hello
