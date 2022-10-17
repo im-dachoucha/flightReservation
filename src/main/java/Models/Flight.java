@@ -9,6 +9,7 @@ public class Flight {
     private int nbrPlace;
     private String departureCity;
     private String arrivalCity;
+    private float price;
 
     public long getId() {
         return id;
@@ -62,7 +63,15 @@ public class Flight {
         this.arrivalCity = arrivalCity;
     }
 
-    public Flight(long id, String flightDate, String takeoff, String landing, int nbrPlace, String departureCity, String arrivalCity) {
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public Flight(long id, String flightDate, String takeoff, String landing, int nbrPlace, String departureCity, String arrivalCity, float price) {
         this.id = id;
         this.flightDate = flightDate;
         this.takeoff = takeoff;
@@ -70,5 +79,6 @@ public class Flight {
         this.nbrPlace = nbrPlace;
         this.departureCity = departureCity;
         this.arrivalCity = arrivalCity;
+        this.price = price;
     }
 }
