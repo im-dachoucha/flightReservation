@@ -30,7 +30,7 @@ public class FlightDao implements Dao<Flight> {
             }
             List<Flight> flights = new ArrayList<>();
             while (resultSet.next()) {
-                Long id = resultSet.getLong("idFlight");
+                long id = resultSet.getLong("idFlight");
                 int nbrPlace = resultSet.getInt("nbrPlace");
                 String takeoff = String.valueOf(resultSet.getTime("takeoff"));
                 String landing = String.valueOf(resultSet.getTime("landing"));
@@ -46,7 +46,30 @@ public class FlightDao implements Dao<Flight> {
 
     @Override
     public Flight get(long id) {
-        return null;
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            String query = "select idFlight, takeOff, landing, nbrPlace, price, departureCity, arrivalCity, flightDate from flight where idFlight = ?";
+            assert connection != null;
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (!resultSet.isBeforeFirst())
+                return null;
+
+            resultSet.next();
+            int nbrPlace = resultSet.getInt("nbrPlace");
+            String takeoff = String.valueOf(resultSet.getTime("takeoff"));
+            String landing = String.valueOf(resultSet.getTime("landing"));
+            String flightDate = resultSet.getString("flightDate");
+            String departureCity = resultSet.getString("departureCity");
+            String arrivalCity = resultSet.getString("arrivalCity");
+            float price = resultSet.getFloat("price");
+
+            return new Flight(id, flightDate, takeoff, landing, nbrPlace, departureCity, arrivalCity, price);
+        } catch (Exception e) {
+            e.getStackTrace();
+            return null;
+        }
     }
 
     @Override

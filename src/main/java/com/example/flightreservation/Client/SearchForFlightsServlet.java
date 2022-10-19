@@ -16,9 +16,6 @@ public class SearchForFlightsServlet extends HttpServlet {
         String departureCity = request.getParameter("departure-city");
         String arrivalCity = request.getParameter("arrival-city");
         String flightDate = request.getParameter("flight-date");
-        System.out.println(departureCity);
-        System.out.println(arrivalCity);
-        System.out.println(flightDate);
         FlightDao flightDao = new FlightDao();
         List<Flight> flights = flightDao.getFlights(departureCity, arrivalCity, flightDate);
         request.setAttribute("flights", flights);
