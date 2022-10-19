@@ -9,9 +9,9 @@ public class ConnectionFactory {
     public static Connection getConnection(){
         try{
             if (connection == null) {
-                String DB_URL = "jdbc:mysql://localhost:3306/flightreservation";
+                String DB_URL = "jdbc:mysql://localhost:3300/flightreservation";
                 String DB_USER = "root";
-                String DB_PASSWORD = "123";
+                String DB_PASSWORD = "Ycode@2021";
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             }
