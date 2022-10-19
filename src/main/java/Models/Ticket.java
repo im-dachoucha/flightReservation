@@ -2,11 +2,12 @@ package Models;
 
 public class Ticket {
 
-    private final long id;
+    private long id;
     private String fullName;
     private String email;
     private String passport;
-    private final Flight flight;
+    private Flight flight;
+    private Client client;
 
     public long getId() {
         return id;
@@ -40,11 +41,31 @@ public class Ticket {
         return flight;
     }
 
-    public Ticket(long id, String fullName, String email, String passport, Flight flight) {
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Ticket(long id, String fullName, String email, String passport, Flight flight, Client client) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
         this.passport = passport;
         this.flight = flight;
+        this.client = client;
+    }
+    public Ticket(String fullName, String email, String passport, Flight flight, Client client) {
+        this.fullName = fullName;
+        this.email = email;
+        this.passport = passport;
+        this.flight = flight;
+        this.client = client;
     }
 }
