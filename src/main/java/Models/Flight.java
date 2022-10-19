@@ -2,7 +2,7 @@ package Models;
 
 public class Flight {
 
-    private final long id;
+    private long id;
     private String flightDate;
     private String takeoff;
     private String landing;
@@ -13,6 +13,10 @@ public class Flight {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFlightDate() {
@@ -80,5 +84,29 @@ public class Flight {
         this.departureCity = departureCity;
         this.arrivalCity = arrivalCity;
         this.price = price;
+    }
+    public Flight(String flightDate, String takeoff, String landing, int nbrPlace, String departureCity, String arrivalCity, float price){
+
+        this.flightDate = flightDate;
+        this.takeoff = takeoff;
+        this.landing = landing;
+        this.nbrPlace = nbrPlace;
+        this.departureCity = departureCity;
+        this.arrivalCity = arrivalCity;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "id=" + id +
+                ", flightDate='" + flightDate + '\'' +
+                ", takeoff='" + takeoff + '\'' +
+                ", landing='" + landing + '\'' +
+                ", nbrPlace=" + nbrPlace +
+                ", departureCity='" + departureCity + '\'' +
+                ", arrivalCity='" + arrivalCity + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

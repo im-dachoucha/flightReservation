@@ -7,4 +7,14 @@
         <param-name>BASE_URL</param-name>
         <param-value>http://localhost:8080/flightReservation_war_exploded</param-value>
     </context-param>
+
+    <servlet>
+        <servlet-name>cs</servlet-name>
+        <servlet-class>com.example.flightreservation.Admin.FlightCrud</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>cs</servlet-name>
+        <url-pattern>*.php</url-pattern>
+    </servlet-mapping>
 </web-app>
